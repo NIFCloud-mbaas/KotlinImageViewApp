@@ -16,6 +16,8 @@
 
 * Android Studio ver. 3.1
 * Android OS ver. 6.0
+* Android SDK v3
+  - SDK v2系だと動作しないので注意
 
 ※上記内容で動作確認をしています。
 
