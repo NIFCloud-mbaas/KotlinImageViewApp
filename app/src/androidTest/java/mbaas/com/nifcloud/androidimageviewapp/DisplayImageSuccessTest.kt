@@ -3,7 +3,6 @@ package mbaas.com.nifcloud.androidimageviewapp
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
@@ -20,7 +19,7 @@ import mbaas.com.nifcloud.androidimageviewapp.Utils.waitFor
 
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class ApplicationTest {
+class DisplayImageSuccessTest {
     @get:Rule
     var mActivityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
@@ -42,14 +41,5 @@ class ApplicationTest {
         onView(withId(R.id.btnShow)).check(matches(isDisplayed())).perform(click())
         onView(isRoot()).perform(waitFor(800))
         onView(withId(R.id.imgShow)).check(matches(hasDrawable()))
-    }
-
-    @Test
-    fun validateDisplayImageFail() {
-        onView(withText("ImageViewSample")).check(matches(isDisplayed()))
-        onView(withId(R.id.imgShow)).check(matches(not(hasDrawable())))
-        onView(withId(R.id.btnShow)).check(matches(isDisplayed())).perform(click())
-        onView(isRoot()).perform(waitFor(800))
-        onView(withText("Notification from NIFCloud")).inRoot(isDialog()).check(matches(isDisplayed()))
     }
 }
